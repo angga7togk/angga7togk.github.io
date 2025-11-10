@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Kirito from "../assets/kirito.jpeg";
+import { projects } from "../constants";
+
+import {
+  FaGithub,
+  FaYoutube,
+  FaInstagram,
+  FaEnvelope,
+  FaLinkedin,
+} from "react-icons/fa";
+---
+
+<Layout>
+  <section
+    class="relative max-w-6xl w-full bg-background text-text border border-text/20 p-4 md:p-8 md:my-2 shadow-sm"
+  >
+    <div
+      class="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-text/30 to-transparent"
+    >
+    </div>
+
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 h-full items-center border-b border-dashed border-text/30 pb-6"
+    >
+      <div class="flex flex-col justify-center space-y-3">
+        <h1
+          class="text-3xl font-extrabold uppercase tracking-tight border-b border-text/20 pb-1"
+        >
+          Hi, I’m <span class="underline decoration-text/30">Angga7Togk</span>.
+        </h1>
+        <p class="text-lg leading-relaxed">
+          I’m a <b>developer of everything</b> — I code, design, create, and build
+          anything that sparks my curiosity. Whether it’s <span class="italic"
+            >web, game, or random experiments</span
+          > — I just love making stuff that works (and sometimes breaks 😅).
+        </p>
+        <p class="text-sm opacity-70 italic">
+          “Curious mind, endless projects. That’s me.”
+        </p>
+      </div>
+
+      <div
+        class="flex items-center justify-center border-l border-dotted border-text/30 pl-4"
+      >
+        <img
+          src={Kirito.src}
+          alt="Kirito"
+          class="w-full h-52 object-top object-cover border border-text/30 shadow-sm grayscale hover:grayscale-0 transition duration-300"
+        />
+      </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="md:col-span-3">
+        <h1
+          class="text-3xl text-center font-extrabold uppercase tracking-tight border-b border-dashed border-text/30 pb-2 mb-6"
+        >
+          What I’ve Worked On
+        </h1>
+
+        <div class="flex items-center md:justify-center flex-wrap md:gap-1">
+          {
+            projects.map((p) => (
+              <div class="shrink-0 w-32 text-center rounded transition-all duration-300 group">
+                {p.icon ? (
+                  <img
+                    src={`/img/projects/${p.icon}`}
+                    alt={p.name}
+                    title={p.name}
+                    class="w-10 md:w-16 h-10 md:h-16 mx-auto mb-2 object-contain grayscale group-hover:grayscale-0 transition duration-300"
+                  />
+                ) : (
+                  <div class="w-10 md:w-16 h-10 md:h-16 mx-auto mb-2 flex items-center justify-center border border-dashed border-text/30 text-sm opacity-60">
+                    No Icon
+                  </div>
+                )}
+                <p class="hidden md:flex text-xs opacity-80 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300">
+                  {p.name}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="border-l border-dashed border-text/30 flex flex-col items-start pl-6 space-y-3"
+      >
+        <h2
+          class="text-xl font-bold uppercase border-b border-dashed border-text/30 pb-1 mb-2"
+        >
+          Connect with Me
+        </h2>
+
+        <a
+          href="https://github.com/Angga7Togk"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+          target="_blank"
+        >
+          <FaGithub /> GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/joni-anggara-6a1820308"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+          target="_blank"
+        >
+          <FaLinkedin /> Linkedin
+        </a>
+
+        <a
+          href="mailto:angga@7togk.id"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+        >
+          <FaEnvelope /> Email Me
+        </a>
+
+        <a
+          href="https://www.youtube.com/@angga7togk_"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+          target="_blank"
+        >
+          <FaYoutube /> YouTube
+        </a>
+
+        <a
+          href="https://www.instagram.com/angga7togk"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+          target="_blank"
+        >
+          <FaInstagram /> Instagram
+        </a>
+        <div
+          class="text-xl font-bold uppercase w-[50%] border-b border-dashed border-text/30 pb-1 mb-2"
+        >
+        </div>
+
+        <a
+          href="https://github.com/GamanJS"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+          target="_blank"
+        >
+          <FaGithub /> GamanJS
+        </a>
+
+        <a
+          href="https://github.com/7TogkID"
+          class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline underline-offset-4 transition"
+          target="_blank"
+        >
+          <FaGithub /> 7TogkID
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
